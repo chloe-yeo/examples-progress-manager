@@ -64,8 +64,9 @@ func f2b(_ subprogress: consuming Subprogress? = nil) async {
     }
 }
 
-func reduce(_ all: [MyXYZ.Value?]) -> MyXYZ.Value {
-    // Start with default value if array is empty
+// Because XYZ is a struct, we cannot rely on the `total(of:)` method on the ProgressManager to get the total.
+// We need to define a method to aggregate the values of MyXYZ.
+func total(_ all: [MyXYZ.Value?]) -> MyXYZ.Value {
     var aggregated_xyz = all.first ?? MyXYZ.defaultValue
     
     for i in 1..<all.count {
@@ -103,5 +104,5 @@ func example3() async {
     let values = p.values(of: MyXYZ.self)
     
     print("XYZ Values in Tree are \(values)")
-    print("Total of XYZ Values in Tree are \(reduce(values))")
+    print("Total of XYZ Values in Tree are \(total(values))")
 }
