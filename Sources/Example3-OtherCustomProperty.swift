@@ -14,17 +14,6 @@ struct MyXYZ : ProgressManager.Property {
     static var defaultValue: XYZ {
         .init(a: 3, b: 3.14159)
     }
-    
-    static func reduce(_ all: [XYZ?]) -> XYZ {
-        var aggregated_xyz = XYZ(a: 0, b: 0.0)
-        for element in all {
-            if let el = element {
-                aggregated_xyz.a += el.a
-                aggregated_xyz.b += el.b
-            }
-        }
-        return aggregated_xyz
-    }
 }
 
 extension ProgressManager.Properties {
@@ -75,6 +64,19 @@ func f2b(_ subprogress: consuming Subprogress? = nil) async {
     }
 }
 
+func reduce(_ all: [MyXYZ.Value?]) -> MyXYZ.Value {
+    // Start with default value if array is empty
+    var aggregated_xyz = all.first ?? MyXYZ.defaultValue
+    
+    for i in 1..<all.count {
+        if let value = all[i] {
+            aggregated_xyz?.a += value.a
+            aggregated_xyz?.b += value.b
+        }
+    }
+    return aggregated_xyz ?? MyXYZ.defaultValue
+}
+
 func example3() async {
     // f1 and f2 both report values for "MyCustomCount". We also have a value for it ourselves.
     let p = ProgressManager(totalCount: 2)
@@ -97,6 +99,9 @@ func example3() async {
     }
     print("XYZ Value is \(v2), fraction: \(p.fractionCompleted)")
     
-    print("XYZ Values in Tree are \(p.values(of: MyXYZ.self))")
-    print("Total of XYZ Values in Tree are \(MyXYZ.reduce(p.values(of: MyXYZ.self)))")
+    // This gets the values of XYZ of each node in the graph with p as a root
+    let values = p.values(of: MyXYZ.self)
+    
+    print("XYZ Values in Tree are \(values)")
+    print("Total of XYZ Values in Tree are \(reduce(values))")
 }
