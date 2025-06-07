@@ -25,3 +25,9 @@ await example3()
 
 print("4 ---")
 await example4()
+
+print("5 ---")
+await example5()
+
+print("6 ---")
+await example6()
