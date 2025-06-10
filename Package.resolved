@@ -1,6 +1,33 @@
 {
-  "originHash" : "5784bb5bf2203e0f786a1a83a358186b6923c4182e8990cc22fa57c3bf85d658",
+  "originHash" : "ff0a5d9926d31d891846a95374c8852ba9f7df89d423c956cc0b341a742cf943",
   "pins" : [
+    {
+      "identity" : "observationsequence",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/phausler/ObservationSequence",
+      "state" : {
+        "branch" : "main",
+        "revision" : "59c4754a7adbc7ad85dc5510dbb1a9b4549df634"
+      }
+    },
+    {
+      "identity" : "swift-algorithms",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-algorithms",
+      "state" : {
+        "revision" : "87e50f483c54e6efd60e885f7f5aa946cee68023",
+        "version" : "1.2.1"
+      }
+    },
+    {
+      "identity" : "swift-async-algorithms",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-async-algorithms",
+      "state" : {
+        "revision" : "042e1c4d9d19748c9c228f8d4ebc97bb1e339b0b",
+        "version" : "1.0.4"
+      }
+    },
     {
       "identity" : "swift-collections",
       "kind" : "remoteSourceControl",
@@ -16,7 +43,7 @@
       "location" : "https://github.com/chloe-yeo/swift-foundation.git",
       "state" : {
         "branch" : "implementation/progress-reporter",
-        "revision" : "b13718f526bea432b14f1437d2cbedb012dfc4b2"
+        "revision" : "4240ec7b5c6ca148b3efe3f808b735e83270afb4"
       }
     },
     {
@@ -29,12 +56,21 @@
       }
     },
     {
+      "identity" : "swift-numerics",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-numerics.git",
+      "state" : {
+        "revision" : "e0ec0f5f3af6f3e4d5e7a19d2af26b481acb6ba8",
+        "version" : "1.0.3"
+      }
+    },
+    {
       "identity" : "swift-syntax",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/swiftlang/swift-syntax",
       "state" : {
         "branch" : "main",
-        "revision" : "6de157b65d57948c8904c3a326cbccfa261215ee"
+        "revision" : "98f6feb84efb5023a266d4a73f5cb234dc6ac956"
       }
     }
   ],
